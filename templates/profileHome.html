@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Profile Home</title>
+<link rel="stylesheet" href={{url_for('static', filename='css/profileHome.css') }} />
+<link rel="stylesheet" href={{url_for('static', filename='css/topStyle.css') }} />
+</head>
+<body>
+<div id="title">
+	<a href="/">
+		<img id="logo" src= {{url_for('static', filename='images/logo.png') }} />
+	</a>
+
+
+	{% if not loggedIn %}
+	<div id="signInButton">
+		<a class="link" href="/loginForm">Вход</a>
+	</div>
+	{% else %}
+	<div class="dropdown">
+		<button class="dropbtn">Здравствуй, <br>{{firstName}}</button>
+		<div class="dropdown-content">
+			<a href="/account/orders">Заказы</a>
+			<a href="/account/profile">Профиль</a>
+			<hr>
+			<a href="/logout">Выход</a>
+		</div>
+	</div>
+	{% endif %}
+	<div id="kart">
+		<a class="link" href="/cart">
+			<img src={{url_for('static', filename='images/shoppingCart.png')}} id="cartIcon" />
+			CART {{noOfItems}}
+		</a>
+	</div>
+</div>
+
+<div class="display">
+	<a href="/account/profile/edit">Редактировать профиль</a><br>
+	<a href="/account/profile/changePassword">Изменить профиль</a>
+</div>
+</body>
+</html>
+

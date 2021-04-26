@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<h2>Добавить предметы</h2>
+<form action="/addItem" method="POST" enctype="multipart/form-data">
+	Name: <input type="text" name="наименование"><br>
+	Price: <input type="text" name="цена"><br>
+	Description: <textarea name="описание" rows=3 cols="40"></textarea><br>
+	Image: <input type="file" name="текст"><br>
+	Stock: <input type="text" name="сток"><br>
+	Category: <select name="категория">
+		{% for row in categories %}
+			<option value="{{row[0]}}">{{row[1]}}</option>
+		{% endfor %}
+	</select><br>
+	<input type="submit">
+</form>
+</body>
+</html>
+
